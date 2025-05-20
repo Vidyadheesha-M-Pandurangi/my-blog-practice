@@ -1,0 +1,26 @@
+{
+  "name": "my-blog-practice",
+  "version": "1.0.0",
+  "description": "INSTALLATION GUIDE : https://github.com/Vidyadheesha-M-Pandurangi/my-blog-practice.wiki.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vidyadheesha-M-Pandurangi/my-blog-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vidyadheesha-M-Pandurangi/my-blog-practice/issues"
+  },
+  "homepage": "https://github.com/Vidyadheesha-M-Pandurangi/my-blog-practice#readme",
+  "dependencies": {
+    "lodash": "4.17.10",
+    "package-lock.json": "^1.0.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
+  }
+}
