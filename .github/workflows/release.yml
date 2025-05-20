@@ -10,7 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@v1.67.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Create tag from package.json version
+        run: |
+          VERSION=$(jq -r .version package.json)
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+
