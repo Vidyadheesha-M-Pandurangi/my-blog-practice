@@ -3,19 +3,20 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - main  # or 'master', depending on your default branch
 
 jobs:
   tag:
+    name: Tag New Release
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up git user
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Create tag from package.json version
-        run: |
-          VERSION=$(jq -r .version package.json)
-          git tag "v$VERSION"
-          git push origin "v$VERSION"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1.67  # ✅ Correct version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub auto-generated token
+          DEFAULT_BUMP: patch                        # Can be 'major', 'minor', or 'patch'
+          WITH_V: true                               # Adds 'v' prefix to version tags, like v1.0.1
