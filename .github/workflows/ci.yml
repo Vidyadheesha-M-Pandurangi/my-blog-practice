@@ -25,5 +25,5 @@ jobs:
         run: |
           echo '{ "extends": "stylelint-config-standard" }' > .stylelintrc.json
 
-      - name: main.css
+      - name: Lint main.css
         run: npx stylelint "assets/styles/main.css"
